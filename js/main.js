@@ -1,4 +1,5 @@
 const loadNews = async (category) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${category}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -11,7 +12,7 @@ const displayNews = (newsList) => {
 
 
     newsList.forEach(news => {
-        console.log(news);
+        // console.log(news);
         newsCount++;
 
         const newsDiv = document.createElement('div');
@@ -38,7 +39,8 @@ const displayNews = (newsList) => {
                                 </div>
                                 <p class="badge bg-warning text-dark"> Views: ${news.total_view}</p>
                                 <p class="badge bg-dark">${news.rating.number}</p>
-                                <button id="news-more" class="btn btn-primary">More</button>
+                                
+                                <button onclick="openModal('${news.details.slice(0, 250)}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">More</button>
                             </div>
                         </div>
                     </div>
@@ -47,6 +49,8 @@ const displayNews = (newsList) => {
         ` ;
 
         newsContainer.appendChild(newsDiv);
+        toggleSpinner(false);
+
     });
 
     document.getElementById('news-count').innerHTML = `
@@ -62,6 +66,13 @@ const displayNews = (newsList) => {
     toggleSpinner(false);
 }
 
+const openModal = (details) => {
+    const modalBody = document.getElementById('phone-details');
+    console.log(details);
+    modalBody.innerText = details ;
+};
+
+
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
     if (isLoading) {
@@ -70,13 +81,6 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('d-none');
     }
 }
+ 
 
-
-(async () => {
-    toggleSpinner(true);
-    await loadNews('01');
-    toggleSpinner(false);
-    toggleSpinner(true);
-    await loadNews(category);
-    toggleSpinner(false);
-})();
+loadNews('01'); 
