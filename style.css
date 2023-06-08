@@ -8,3 +8,7 @@
 .nav-item:last-child{
     margin-right: 0;
 }
+
+#news-info > p {
+    margin: 0;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Newzly by Miraz</title>
     <!-- bs-5 css cdn  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -51,31 +51,31 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav2">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
+                            <li  onclick="loadNews('01')" class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Breaking news</a>
+                            <li onclick="loadNews('02')" class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Breaking News</a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('03')" class="nav-item">
                                 <a class="nav-link" href="#">Regular News</a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('04')" class="nav-item">
                                 <a class="nav-link" href="#">International </a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('05')" class="nav-item">
                                 <a class="nav-link" href="#">Sports</a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('06')" class="nav-item">
                                 <a class="nav-link" href="#">Entertainment</a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('07')" class="nav-item">
                                 <a class="nav-link" href="#">Culture</a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('08')" class="nav-item">
                                 <a class="nav-link" href="#">Arts</a>
                             </li>
-                            <li class="nav-item">
+                            <li onclick="loadNews('01')" class="nav-item">
                                 <a class="nav-link" href="#">All News</a>
                             </li>
                         </ul>
@@ -91,32 +91,56 @@
 
 
     <main>
+        <div id="news-count">
+
+        </div>
         <!-- main news part starts here  -->
         <section class="news-portal container-fluid mx-auto">
             <div id="news-container" class="row row-cols-1 row-cols-md-2 g-4 my-5">
-
+                <!-- js dynamic value inserted here  -->
 
             </div>
         </section>
     </main>
 
-    <div class="d-flex border" id="news-info">
-        <div class="user d-flex justify-content-center align-items-center">
-            <img class="img-fluid " src="./images/user.png" style="width: 30px; height: 30px;" alt="">
-            <div class="info">
-                <span>username</span> <br>
-                <span>published date</span>
+     <!-- loader  -->
+     <section id="loader" class="d-none">
+        <div style="height: 400px;" class="d-flex  justify-content-center align-items-center">
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <p>Views Count</p>
-        <p>rating</p>
-        <button class="btn btn-primary">Full News</button>
+    </section>
 
-    </div>
+    <section>
+        <!-- modal contents  -->
+        <!-- Button trigger modal -->
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="phoneDetailModal" tabindex="-1" aria-labelledby="phoneDetailModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="phoneDetailModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="phone-details" class="modal-body">
+                         
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-    <footer class="w-100 bg-light text-center">
-        <h4>copyright @miraz 2023</h4>
+    <footer class=" w-100 bg-light text-center">
+        <h4 class="position-sticky bottom-0 border">copyright @miraz 2023</h4>
     </footer>
 
     <!-- bs5 cdn  -->
