@@ -1,0 +1,10 @@
+*{
+    text-overflow: none;
+}
+
+.nav-item{
+    margin-right: 1.5rem;
+}
+.nav-item:last-child{
+    margin-right: 0;
+}
