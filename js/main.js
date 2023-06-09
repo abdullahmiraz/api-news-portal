@@ -74,6 +74,10 @@ const openModal = (details) => {
 };
 
 
+
+
+
+
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
     if (isLoading) {
