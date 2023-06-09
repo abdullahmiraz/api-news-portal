@@ -61,7 +61,8 @@ const displayNews = (newsList) => {
         </div>
         ` ;
 
-    newsCount = 0;
+    newsCount = 0; 
+    
 
     toggleSpinner(false);
 }
